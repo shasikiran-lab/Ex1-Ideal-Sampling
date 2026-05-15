@@ -36,7 +36,7 @@ rec = lfilter(b, a, nat)
 
 # Plot
 plt.figure(figsize=(10,9))
-plt.suptitle("NAME : SARMASARAN.M\nREG NO : 212224060239",
+plt.suptitle("NAME : shasikiran m\nREG NO : 212224060247",
              fontsize=12, fontweight='bold')
 
 plt.subplot(4,1,1)
