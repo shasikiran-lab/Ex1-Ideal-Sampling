@@ -64,6 +64,56 @@ plt.show()
 
 
 #### FLAT-TOP SAMPLING:
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import butter, lfilter
+
+# Parameters
+fs, T, fm, fp = 1000, 1, 5, 50
+t = np.arange(0, T, 1/fs)
+
+# Message signal
+m = np.sin(2 * np.pi * fm * t)
+
+# Sampling
+bd = fs // fp
+idx = np.arange(0, len(t), bd)
+
+flat = np.zeros_like(t)
+
+for i in idx:
+    flat[i:i + bd // 2] = m[i]
+
+# Low-pass filter (reconstruction)
+b, a = butter(4, (2 * fm) / (0.5 * fs), 'low')
+recon = lfilter(b, a, flat)
+
+# Plot
+plt.figure(figsize=(10, 9))
+plt.suptitle(
+    "NAME :shasikiran m\nREG NO : 212224060247",
+    fontsize=12,
+    fontweight='bold'
+)
+
+plt.subplot(4, 1, 1)
+plt.plot(t, m)
+plt.title("Message Signal")
+
+plt.subplot(4, 1, 2)
+plt.stem(t[idx], np.ones_like(idx), basefmt=" ")
+plt.title("Sampling Instants")
+
+plt.subplot(4, 1, 3)
+plt.plot(t, flat)
+plt.title("Flat-Top Sampled Signal")
+
+plt.subplot(4, 1, 4)
+plt.plot(t, recon, color='g')
+plt.title("Reconstructed Signal")
+
+plt.tight_layout(rect=[0, 0, 1, 0.93])
+plt.show()
 
 ## OUTPUT WAVEFORM:
 #### IDEAL SAMPLING:
@@ -73,6 +123,8 @@ plt.show()
 
 
 #### FLAT-TOP SAMPLING:
+<img width="981" height="887" alt="image" src="https://github.com/user-attachments/assets/926282f5-02bb-4bb9-8f94-60de380af070" />
+
 
 ## RESULT:
 Thus, the construction and reconstruction of Ideal, Natural and Flat-top sampling were successfully implemented using Python, and the corresponding waveforms were obtained.
