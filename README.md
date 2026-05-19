@@ -157,6 +157,7 @@ plt.show()
 
 ## OUTPUT WAVEFORM:
 #### IDEAL SAMPLING:
+<img width="989" height="789" alt="image" src="https://github.com/user-attachments/assets/2f8c8615-90f8-4e37-82b5-b6f9ee0be658" />
 
 #### NATURAL SAMPLING:
  <img width="981" height="887" alt="image" src="https://github.com/user-attachments/assets/16fcac8a-7355-4b86-9861-ea382bb0ae04" />
